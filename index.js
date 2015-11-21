@@ -19,11 +19,22 @@ app.get('/', function(request, response) {
   response.render('pages/index');
 });
 
+data = [];
+
+app.get('/view-submissions', function(request, response) {
+  response.render('pages/view-projects', { data: data });
+});
+
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
 
 app.get('/Post', function(req, res) {
-  console.log(req.param('name') + " " + req.param('project') + " " + req.param('url'));
+    data.push({
+        name: req.param('name'),
+        project: req.param('project'),
+        url: req.param('url')
+    });
+  console.log(JSON.stringify(data));
   res.redirect("/");
 });

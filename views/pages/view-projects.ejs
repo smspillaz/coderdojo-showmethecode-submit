@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ../partials/header.ejs %>
+</head>
+
+<body>
+
+  <% include ../partials/nav.ejs %>
+
+  <div style="margin: auto; width: 70%;">
+
+    <div class="jumbotron" style="border-radius: 10px;">
+      <h1 style="margin-left: 20px;">Submissions</h1>
+    </div>
+    <div class="panel panel-primary" style="padding: 20px;">
+      <ul class="media-list">
+        <% for (var i = 0; i < data.length; i++) {%>
+          <li class="media">
+            <a href="%data[i]['url']%">
+              <div class="media-body">
+                <h4 class="media-heading">
+                  <%= data[i]["name"] %>
+                </h4>
+                <%= data[i]["project"] %>
+              </div>
+            </a>
+          </li>
+        <% } %>
+    </ul>
+</body>
+</html>
