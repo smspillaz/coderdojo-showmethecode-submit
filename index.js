@@ -21,8 +21,8 @@ app.get('/', function(request, response) {
 
 data = [];
 
-app.get('/view-submissions', function(request, response) {
-  response.render('pages/view-projects', { data: data });
+app.get('/dojo-champions', function(request, response) {
+  response.render('pages/dojo-champions', { data: data });
 });
 
 app.listen(app.get('port'), function() {
