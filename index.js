@@ -33,7 +33,7 @@ app.get('/Post', function(req, res) {
     data.push({
         name: req.param('name'),
         project: req.param('project'),
-        url: req.param('url')
+        url: 'http://' + req.param('url')
     });
   console.log(JSON.stringify(data));
   res.redirect("/");
