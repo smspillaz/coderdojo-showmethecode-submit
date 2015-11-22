@@ -1,18 +1,20 @@
-# node-js-getting-started
+# CoderDojo WA - Show Me the Project Submission
 
-A barebones Node.js app using [Express 4](http://expressjs.com/).
-
-This application supports the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
+A Node.js web-application for students to submit projects and for mentors to view them on the leader-computer.
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
 ## Running Locally
 
-Make sure you have [Node.js](http://nodejs.org/) and the [Heroku Toolbelt](https://toolbelt.heroku.com/) installed.
+You'll need to create a postgres database and provide it in `DATABASE_URL`, eg `export DATABASE_URL=postgres:///my_database`. Tables will be created automatically.
 
-```sh
-$ git clone git@github.com:heroku/node-js-getting-started.git # or clone your own fork
-$ cd node-js-getting-started
+Authentication to get in to the dojo master view happens with Google's OAuth2 backend. You'll need to add your profile ID to the `user` table in the database manually for now. The application requires `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` to be set. You can get some of those by creating an application on Google Developer Console that just requires the ability authenticate via email address, going to "Credentials" and filling out the form. Keep those tokens secret.
+
+After that, its just a matter of:
+
+```
+$ git clone git://github.com/smspillaz/coderdojo-showmethecode-submit # or clone your own fork
+$ cd coderdojo-showmethecode-submit
 $ npm install
 $ npm start
 ```
@@ -26,13 +28,3 @@ $ heroku create
 $ git push heroku master
 $ heroku open
 ```
-
-## Documentation
-
-For more information about using Node.js on Heroku, see these Dev Center articles:
-
-- [Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
-- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
-- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
-- [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
-- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
